@@ -14,6 +14,59 @@
 
 ![DEMO下载二维码](/screenshots/code.png)
 
+# Usage
+
+Use Gradle:
+``` java
+compile 'me.kareluo.ui:library:1.0.0'
+```
+
+Or Maven:
+``` maven
+<dependency>
+  <groupId>me.kareluo.ui</groupId>
+  <artifactId>library</artifactId>
+  <version>1.0.0</version>
+  <type>pom</type>
+</dependency>
+```
+
+# Sample
+
+`PopupMenuView`可以通过menu布局文件加载出预先准备的菜单：
+
+``` java
+// 根据menu资源文件创建
+PopupMenuView menuView = new PopupMenuView(this, R.menu.menu_pop);
+
+// 设置点击监听事件
+menuView.setOnMenuClickListener(new OptionMenuView.OnOptionMenuClickListener() {
+    @Override
+    public boolean onOptionMenuClick(int position, OptionMenu menu) {
+        Toast.makeText(this, menu.getTitle(), Toast.LENGTH_SHORT).show();
+        return true;
+    }
+});
+
+// 显示在mButtom控件的周围
+menuView.show(mButtom);
+```
+
+或者通过代码添加:
+
+``` java
+menuView.setMenuItems(Arrays.asList(
+    new OptionMenu("复制"), new OptionMenu("转发到朋友圈"),
+    new OptionMenu("收藏"), new OptionMenu("翻译"),
+    new OptionMenu("删除")));
+```
+
+默认的显示方位为：上、下、左、右，即按照这种顺序测试界面是否可以显示下菜单，可以如下方式自定义：
+
+``` java
+menuView.setSites(PopupView.SITE_BOTTOM, PopupView.SITE_LEFT, PopupView.SITE_TOP, PopupView.SITE_RIGHT);
+```
+
 # License
 ``` license
 Copyright 2016 kareluo.
