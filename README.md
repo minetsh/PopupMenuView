@@ -11,7 +11,8 @@
 
 # Demo
 安装 [apk](https://www.pgyer.com/menu) 文件预览效果，或者通过下面二维码去下载安装：
-![DEMO下载二维码](https://static.pgyer.com/app/qrcode/menu)
+
+![DEMO下载二维码](/screenshots/code.png)
 
 # License
 ``` license
