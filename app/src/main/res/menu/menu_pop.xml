@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/menu_collect"
+        android:checkable="true"
+        android:icon="@drawable/s_heart"
+        android:title="收藏" />
+
+    <item
+        android:id="@+id/menu_tang"
+        android:title="烫烫烫烫烫烫" />
+
+    <item
+        android:id="@+id/menu_location"
+        android:icon="@drawable/ic_location"
+        android:orderInCategory="2"
+        android:title="发送位置" />
+
+    <item
+        android:id="@+id/menu_more"
+        android:icon="@drawable/ic_more"
+        android:orderInCategory="2"
+        android:title="更多" />
+</menu>
