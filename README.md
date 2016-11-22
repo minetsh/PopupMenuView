@@ -8,3 +8,24 @@
 - `PopupMenuView`是上述三者的集合，实现了弹出气泡菜单的功能。
 
 ![预览图片](/screenshots/preview_image.png)
+
+# Demo
+安装 [apk](https://www.pgyer.com/menu) 文件预览效果，或者通过下面二维码去下载安装：
+![DEMO下载二维码](https://static.pgyer.com/app/qrcode/menu)
+
+# License
+``` license
+Copyright 2016 kareluo.
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+```
