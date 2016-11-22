@@ -26,9 +26,9 @@ public class PopLayout extends FrameLayout implements View.OnLayoutChangeListene
 
     private int mOffset = 0;
 
-    private int mRadius = 16;
+    private int mRadius = DEFAULT_RADIUS;
 
-    private int mBulgeSize = 14;
+    private int mBulgeSize = DEFAULT_BULGE_SIZE;
 
     private Paint mPaint;
 
@@ -52,7 +52,7 @@ public class PopLayout extends FrameLayout implements View.OnLayoutChangeListene
 
     private static final int DEFAULT_RADIUS = 16;
 
-    private static final int DEFAULT_BULGE_SIZE = 14;
+    private static final int DEFAULT_BULGE_SIZE = 16;
 
     private static final Xfermode MODE = new PorterDuffXfermode(PorterDuff.Mode.DST_IN);
 

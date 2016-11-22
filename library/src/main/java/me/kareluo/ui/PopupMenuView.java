@@ -38,13 +38,25 @@ public class PopupMenuView extends PopupView implements OptionMenuView.OnOptionM
     }
 
     public void setMenuItems(List<OptionMenu> optionMenus) {
-        mOptionMenuView.updateAll(optionMenus);
+        mOptionMenuView.setOptionMenus(optionMenus);
         measureContentView();
     }
 
     public void setOrientation(int orientation) {
         mOptionMenuView.setOrientation(orientation);
         measureContentView();
+    }
+
+    // 暂时暴露出
+    @Deprecated
+    public PopLayout getPopLayout() {
+        return mPopLayout;
+    }
+
+    // 暂时暴露出
+    @Deprecated
+    public OptionMenuView getMenuView() {
+        return mOptionMenuView;
     }
 
     public void setOnMenuClickListener(OptionMenuView.OnOptionMenuClickListener listener) {

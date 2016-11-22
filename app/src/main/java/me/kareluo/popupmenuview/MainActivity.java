@@ -104,7 +104,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         mPopupMenuView = new PopupMenuView(this, R.menu.menu_pop);
         mPopupMenuView.setOnMenuClickListener(this);
 
-        mMenuView.updateAll(Arrays.asList(
+        mMenuView.setOptionMenus(Arrays.asList(
                 new OptionMenu("复制"), new OptionMenu("转发到朋友圈"),
                 new OptionMenu("收藏"), new OptionMenu("翻译"),
                 new OptionMenu("删除")));
