@@ -7,12 +7,12 @@
 - `PopupView`继承自`PopupWindow`，用于实现控件的指定方位弹出效果。
 - `PopupMenuView`是上述三者的集合，实现了弹出气泡菜单的功能。
 
-![预览图片](/screenshots/preview_image.png)
+![预览图片](/screenshot/preview_image.png)
 
 # Demo
 安装 [apk](https://www.pgyer.com/menu) 文件预览效果，或者通过下面二维码去下载安装：
 
-![DEMO下载二维码](/screenshots/code.png)
+![DEMO下载二维码](/screenshot/code.png)
 
 # Usage
 
