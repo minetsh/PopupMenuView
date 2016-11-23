@@ -5,6 +5,7 @@
       <module fileurl="file://$PROJECT_DIR$/PopupMenuView.iml" filepath="$PROJECT_DIR$/PopupMenuView.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
       <module fileurl="file://$PROJECT_DIR$/popmenu/library.iml" filepath="$PROJECT_DIR$/popmenu/library.iml" />
+      <module fileurl="file://$PROJECT_DIR$/popmenu/popmenu.iml" filepath="$PROJECT_DIR$/popmenu/popmenu.iml" />
     </modules>
   </component>
 </project>

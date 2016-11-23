@@ -21,6 +21,8 @@ public class OptionMenu {
 
     private boolean checkable;
 
+    private int titleRes;
+
     private CharSequence title;
 
     private Drawable drawableLeft;
@@ -36,6 +38,11 @@ public class OptionMenu {
         this.visible = true;
         this.checked = false;
         this.checkable = true;
+    }
+
+    public OptionMenu(int titleRes) {
+        this();
+        this.titleRes = titleRes;
     }
 
     public OptionMenu(CharSequence title) {
@@ -113,6 +120,14 @@ public class OptionMenu {
         this.checkable = checkable;
     }
 
+    public int getTitleRes() {
+        return titleRes;
+    }
+
+    public void setTitleRes(int titleRes) {
+        this.titleRes = titleRes;
+    }
+
     public CharSequence getTitle() {
         return title;
     }
@@ -154,7 +169,9 @@ public class OptionMenu {
     }
 
     public void validate(CheckedTextView textView) {
-        textView.setText(title);
+        if (titleRes > 0) {
+            textView.setText(titleRes);
+        } else textView.setText(title);
         textView.setEnabled(enable);
         textView.setChecked(checked);
         // 暂时不支持

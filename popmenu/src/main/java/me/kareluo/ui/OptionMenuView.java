@@ -128,13 +128,28 @@ public class OptionMenuView extends LinearLayout implements PopLayout.OnBulgeCha
     private void adjustChildCount(int targetCount) {
         int count = getChildCount();
         if (count < targetCount) {
-            for (int i = targetCount - count; i > 0; i--) {
-                addView(newMenuItemView());
+            for (int i = 0; i < targetCount; i++) {
+                if (i < count) {
+                    View view = getChildAt(i);
+                    if (view.getVisibility() != VISIBLE) {
+                        view.setVisibility(VISIBLE);
+                    }
+                } else {
+                    addView(newMenuItemView());
+                }
             }
         } else {
-            for (int i = targetCount; i < count; i++) {
+            for (int i = 0; i < count; i++) {
                 View view = getChildAt(i);
-                view.setVisibility(GONE);
+                if (i < targetCount) {
+                    if (view.getVisibility() != VISIBLE) {
+                        view.setVisibility(VISIBLE);
+                    }
+                } else {
+                    if (view.getVisibility() != GONE) {
+                        view.setVisibility(GONE);
+                    }
+                }
             }
         }
         if (targetCount != count) {

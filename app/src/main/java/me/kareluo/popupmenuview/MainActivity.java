@@ -10,6 +10,7 @@ import android.widget.SeekBar;
 import android.widget.Toast;
 
 import java.util.Arrays;
+import java.util.List;
 
 import me.kareluo.ui.OptionMenu;
 import me.kareluo.ui.OptionMenuView;

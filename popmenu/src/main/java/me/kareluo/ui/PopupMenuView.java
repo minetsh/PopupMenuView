@@ -43,9 +43,17 @@ public class PopupMenuView extends PopupView implements OptionMenuView.OnOptionM
         measureContentView();
     }
 
+    public List<OptionMenu> getMenuItems() {
+        return mOptionMenuView.getOptionMenus();
+    }
+
     public void setOrientation(int orientation) {
         mOptionMenuView.setOrientation(orientation);
         measureContentView();
+    }
+
+    public int getOrientation() {
+        return mOptionMenuView.getOrientation();
     }
 
     // 暂时暴露出
