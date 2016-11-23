@@ -18,7 +18,7 @@
 
 Use Gradle:
 ``` java
-compile 'me.kareluo.ui:library:1.0.0'
+compile 'me.kareluo.ui:library:1.0.2'
 ```
 
 Or Maven:
@@ -26,7 +26,7 @@ Or Maven:
 <dependency>
   <groupId>me.kareluo.ui</groupId>
   <artifactId>library</artifactId>
-  <version>1.0.0</version>
+  <version>1.0.2</version>
   <type>pom</type>
 </dependency>
 ```
