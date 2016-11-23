@@ -18,7 +18,7 @@
 
 Use Gradle:
 ``` java
-compile 'me.kareluo.ui:popmenu:1.0.3'
+compile 'me.kareluo.ui:popmenu:1.0.5'
 ```
 
 Or Maven:
@@ -26,7 +26,7 @@ Or Maven:
 <dependency>
   <groupId>me.kareluo.ui</groupId>
   <artifactId>popmenu</artifactId>
-  <version>1.0.3</version>
+  <version>1.0.5</version>
   <type>pom</type>
 </dependency>
 ```
