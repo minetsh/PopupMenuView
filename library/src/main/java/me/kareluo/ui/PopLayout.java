@@ -26,7 +26,7 @@ public class PopLayout extends FrameLayout implements View.OnLayoutChangeListene
 
     private int mOffset = 0;
 
-    private int mRadius = DEFAULT_RADIUS;
+    private int mRadiusSize = DEFAULT_RADIUS;
 
     private int mBulgeSize = DEFAULT_BULGE_SIZE;
 
@@ -77,9 +77,10 @@ public class PopLayout extends FrameLayout implements View.OnLayoutChangeListene
 
     private void initialize(Context context, AttributeSet attrs, int defStyleAttr) {
         TypedArray a = context.obtainStyledAttributes(attrs, R.styleable.PopLayout);
-        mSiteMode = a.getInt(R.styleable.PopLayout_site, SITE_BOTTOM);
-        mRadius = a.getDimensionPixelSize(R.styleable.PopLayout_radius, DEFAULT_RADIUS);
+        mSiteMode = a.getInt(R.styleable.PopLayout_siteMode, SITE_BOTTOM);
+        mRadiusSize = a.getDimensionPixelSize(R.styleable.PopLayout_radiusSize, DEFAULT_RADIUS);
         mBulgeSize = a.getDimensionPixelSize(R.styleable.PopLayout_bulgeSize, DEFAULT_BULGE_SIZE);
+        mOffset = a.getDimensionPixelSize(R.styleable.PopLayout_offsetSize, 0);
         a.recycle();
 
         if (getBackground() == null) {
@@ -126,10 +127,10 @@ public class PopLayout extends FrameLayout implements View.OnLayoutChangeListene
     private void resetMask() {
         mPopMaskPath.reset();
         int width = getMeasuredWidth(), height = getMeasuredHeight();
-        if (width <= mRadius || height <= mRadius) return;
+        if (width <= mRadiusSize || height <= mRadiusSize) return;
         int offset = reviseOffset(mOffset);
         mPopMaskPath.addRect(new RectF(0, 0, width, height), Path.Direction.CW);
-        mPopMaskPath.addRoundRect(new RectF(mBulgeSize, mBulgeSize, width - mBulgeSize, height - mBulgeSize), mRadius, mRadius, Path.Direction.CCW);
+        mPopMaskPath.addRoundRect(new RectF(mBulgeSize, mBulgeSize, width - mBulgeSize, height - mBulgeSize), mRadiusSize, mRadiusSize, Path.Direction.CCW);
         mPopMaskPath.setFillType(Path.FillType.INVERSE_EVEN_ODD);
 
         switch (mSiteMode) {
@@ -170,10 +171,10 @@ public class PopLayout extends FrameLayout implements View.OnLayoutChangeListene
                 size = getHeight();
                 break;
         }
-        offset = Math.max(offset, mRadius + bulgeWidth);
+        offset = Math.max(offset, mRadiusSize + bulgeWidth);
         if (size > 0) {
-            offset = Math.min(offset, size - mRadius - bulgeWidth);
-            if (mRadius + bulgeWidth > offset) {
+            offset = Math.min(offset, size - mRadiusSize - bulgeWidth);
+            if (mRadiusSize + bulgeWidth > offset) {
                 offset = size >> 1;
             }
         }
@@ -188,9 +189,9 @@ public class PopLayout extends FrameLayout implements View.OnLayoutChangeListene
         }
     }
 
-    public void setRadius(int radius) {
-        if (mRadius != radius) {
-            mRadius = radius;
+    public void setRadiusSize(int radius) {
+        if (mRadiusSize != radius) {
+            mRadiusSize = radius;
             resetMask();
             postInvalidate();
         }
@@ -218,8 +219,8 @@ public class PopLayout extends FrameLayout implements View.OnLayoutChangeListene
         return mOffset;
     }
 
-    public int getRadius() {
-        return mRadius;
+    public int getRadiusSize() {
+        return mRadiusSize;
     }
 
     public int getBugleSize() {

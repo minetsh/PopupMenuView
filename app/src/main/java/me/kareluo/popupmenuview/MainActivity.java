@@ -2,6 +2,7 @@ package me.kareluo.popupmenuview;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.view.menu.MenuBuilder;
 import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.RadioGroup;
@@ -39,12 +40,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         mImgPopLayout = (PopLayout) findViewById(R.id.pl_img);
 
         SeekBar sbRadius = (SeekBar) findViewById(R.id.sb_radius);
-        sbRadius.setProgress(mImgPopLayout.getRadius());
+        sbRadius.setProgress(mImgPopLayout.getRadiusSize());
         sbRadius.setOnSeekBarChangeListener(
                 new SeekBar.OnSeekBarChangeListener() {
                     @Override
                     public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
-                        mImgPopLayout.setRadius(progress);
+                        mImgPopLayout.setRadiusSize(progress);
                     }
 
                     @Override
@@ -101,7 +102,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             }
         });
 
-        mPopupMenuView = new PopupMenuView(this, R.menu.menu_pop);
+        mPopupMenuView = new PopupMenuView(this, R.menu.menu_pop, new MenuBuilder(this));
         mPopupMenuView.setOnMenuClickListener(this);
 
         mMenuView.setOptionMenus(Arrays.asList(

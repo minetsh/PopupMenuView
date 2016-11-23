@@ -3,9 +3,9 @@ package me.kareluo.ui;
 import android.annotation.TargetApi;
 import android.content.Context;
 import android.os.Build;
-import android.support.v7.view.menu.MenuBuilder;
 import android.util.AttributeSet;
 import android.util.Log;
+import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.View;
 import android.widget.CheckedTextView;
@@ -104,8 +104,7 @@ public class OptionMenuView extends LinearLayout implements PopLayout.OnBulgeCha
         super.requestLayout();
     }
 
-    public void inflate(int menuRes) {
-        MenuBuilder menu = new MenuBuilder(getContext());
+    public void inflate(int menuRes, Menu menu) {
         MenuInflater inflater = new MenuInflater(getContext());
         inflater.inflate(menuRes, menu);
         mOptionMenus.clear();

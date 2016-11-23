@@ -112,7 +112,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             app:bulgeSize="12dp"
-            app:radius="10dp">
+            app:offsetSize="80dp"
+            app:radiusSize="10dp">
 
             <ImageView
                 android:layout_width="wrap_content"

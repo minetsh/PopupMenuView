@@ -2,13 +2,13 @@ apply plugin: 'com.android.library'
 apply plugin: 'com.jfrog.bintray'
 apply plugin: 'com.github.dcendents.android-maven'
 
-version = "1.0.0"
+version = "1.0.2"
 
 android {
     compileSdkVersion 24
     buildToolsVersion "24.0.2"
 
-    resourcePrefix "intensify_ui"
+    resourcePrefix "kareluo_ui_"
 
     defaultConfig {
         minSdkVersion 14
@@ -25,7 +25,6 @@ android {
 }
 
 dependencies {
-    compile 'com.android.support:appcompat-v7:24.+'
     compile fileTree(dir: 'libs', include: ['*.jar'])
     testCompile 'junit:junit:4.12'
 }

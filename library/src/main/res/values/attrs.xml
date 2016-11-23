@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
 
-    <declare-styleable name="PopLayout">
-        <attr name="radius" format="dimension" />
+    <declare-styleable name="PopLayout" tools:ignore="ResourceName">
+        <attr name="radiusSize" format="dimension" />
         <attr name="bulgeSize" format="dimension" />
-        <attr name="site" format="enum">
+        <attr name="offsetSize" format="dimension" />
+        <attr name="siteMode" format="enum">
             <enum name="top" value="0" />
             <enum name="left" value="1" />
             <enum name="right" value="2" />

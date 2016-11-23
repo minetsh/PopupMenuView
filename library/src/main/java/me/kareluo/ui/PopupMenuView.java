@@ -3,6 +3,7 @@ package me.kareluo.ui;
 import android.content.Context;
 import android.graphics.Point;
 import android.graphics.Rect;
+import android.view.Menu;
 import android.view.View;
 
 import java.util.List;
@@ -27,13 +28,13 @@ public class PopupMenuView extends PopupView implements OptionMenuView.OnOptionM
         setContentView(mPopLayout);
     }
 
-    public PopupMenuView(Context context, int menuRes) {
+    public PopupMenuView(Context context, int menuRes, Menu menu) {
         this(context);
-        inflate(menuRes);
+        inflate(menuRes, menu);
     }
 
-    public void inflate(int meenuRes) {
-        mOptionMenuView.inflate(meenuRes);
+    public void inflate(int menuRes, Menu menu) {
+        mOptionMenuView.inflate(menuRes, menu);
         measureContentView();
     }
 
