@@ -67,6 +67,19 @@ menuView.setMenuItems(Arrays.asList(
 menuView.setSites(PopupView.SITE_BOTTOM, PopupView.SITE_LEFT, PopupView.SITE_TOP, PopupView.SITE_RIGHT);
 ```
 
+# Update Logs
+
+#### v1.0.0
+- 弹出菜单`PopupMenuView`
+- 气泡布局
+- 菜单控件
+
+#### v1.0.1
+- 移除support库引用，加载menu资源文件方法变动
+
+#### v1.0.2
+- 增加气泡布局资源属性offsetSize，并修改部分资源属性名称
+
 # License
 ``` license
 Copyright 2016 kareluo.
