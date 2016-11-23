@@ -37,7 +37,7 @@ Or Maven:
 
 ``` java
 // 根据menu资源文件创建
-PopupMenuView menuView = new PopupMenuView(this, R.menu.menu_pop);
+PopupMenuView menuView = new PopupMenuView(this, R.menu.menu_pop, new MenuBuilder(context));
 
 // 设置点击监听事件
 menuView.setOnMenuClickListener(new OptionMenuView.OnOptionMenuClickListener() {
