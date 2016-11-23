@@ -18,15 +18,15 @@
 
 Use Gradle:
 ``` java
-compile 'me.kareluo.ui:library:1.0.2'
+compile 'me.kareluo.ui:popmenu:1.0.3'
 ```
 
 Or Maven:
 ``` maven
 <dependency>
   <groupId>me.kareluo.ui</groupId>
-  <artifactId>library</artifactId>
-  <version>1.0.2</version>
+  <artifactId>popmenu</artifactId>
+  <version>1.0.3</version>
   <type>pom</type>
 </dependency>
 ```
@@ -79,6 +79,9 @@ menuView.setSites(PopupView.SITE_BOTTOM, PopupView.SITE_LEFT, PopupView.SITE_TOP
 
 #### v1.0.2
 - 增加气泡布局资源属性offsetSize，并修改部分资源属性名称
+
+#### v1.0.3
+- 修改了module的名称，之前版本为`library`，后续版本为`popmenu`
 
 # License
 ``` license
