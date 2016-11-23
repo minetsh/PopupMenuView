@@ -10,7 +10,6 @@ import android.widget.SeekBar;
 import android.widget.Toast;
 
 import java.util.Arrays;
-import java.util.List;
 
 import me.kareluo.ui.OptionMenu;
 import me.kareluo.ui.OptionMenuView;
@@ -28,6 +27,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private OptionMenuView mMenuView;
 
     private PopupMenuView mPopupMenuView;
+
+    private PopupMenuView mCustomMenuView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -106,6 +107,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         mPopupMenuView = new PopupMenuView(this, R.menu.menu_pop, new MenuBuilder(this));
         mPopupMenuView.setOnMenuClickListener(this);
 
+        mCustomMenuView = new PopupMenuView(this, R.layout.layout_custom_menu);
+        mCustomMenuView.inflate(R.menu.menu_pop, new MenuBuilder(this));
+        mCustomMenuView.setOnMenuClickListener(this);
+
         mMenuView.setOptionMenus(Arrays.asList(
                 new OptionMenu("复制"), new OptionMenu("转发到朋友圈"),
                 new OptionMenu("收藏"), new OptionMenu("翻译"),
@@ -119,9 +124,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 if (mMenuView.getOrientation() == LinearLayout.HORIZONTAL) {
                     mMenuView.setOrientation(LinearLayout.VERTICAL);
                     mPopupMenuView.setOrientation(LinearLayout.VERTICAL);
+                    mCustomMenuView.setOrientation(LinearLayout.VERTICAL);
                 } else {
                     mMenuView.setOrientation(LinearLayout.HORIZONTAL);
                     mPopupMenuView.setOrientation(LinearLayout.HORIZONTAL);
+                    mCustomMenuView.setOrientation(LinearLayout.HORIZONTAL);
                 }
                 break;
             case R.id.btn_show:
@@ -129,6 +136,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             case R.id.btn_show2:
             case R.id.btn_show3:
                 mPopupMenuView.show(v);
+                break;
+            case R.id.btn_custom:
+                mCustomMenuView.show(v);
                 break;
         }
     }
@@ -140,21 +150,25 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 mPopLayout.setSiteMode(PopLayout.SITE_LEFT);
                 mImgPopLayout.setSiteMode(PopLayout.SITE_LEFT);
                 mPopupMenuView.setSites(PopupView.SITE_LEFT, PopupView.SITE_TOP, PopupView.SITE_RIGHT, PopupView.SITE_BOTTOM);
+                mCustomMenuView.setSites(PopupView.SITE_LEFT, PopupView.SITE_TOP, PopupView.SITE_RIGHT, PopupView.SITE_BOTTOM);
                 break;
             case R.id.radio2:
                 mPopLayout.setSiteMode(PopLayout.SITE_TOP);
                 mImgPopLayout.setSiteMode(PopLayout.SITE_TOP);
                 mPopupMenuView.setSites(PopupView.SITE_TOP, PopupView.SITE_RIGHT, PopupView.SITE_BOTTOM, PopupView.SITE_LEFT);
+                mCustomMenuView.setSites(PopupView.SITE_TOP, PopupView.SITE_RIGHT, PopupView.SITE_BOTTOM, PopupView.SITE_LEFT);
                 break;
             case R.id.radio3:
                 mPopLayout.setSiteMode(PopLayout.SITE_RIGHT);
                 mImgPopLayout.setSiteMode(PopLayout.SITE_RIGHT);
                 mPopupMenuView.setSites(PopupView.SITE_RIGHT, PopupView.SITE_BOTTOM, PopupView.SITE_LEFT, PopupView.SITE_TOP);
+                mCustomMenuView.setSites(PopupView.SITE_RIGHT, PopupView.SITE_BOTTOM, PopupView.SITE_LEFT, PopupView.SITE_TOP);
                 break;
             case R.id.radio4:
                 mPopLayout.setSiteMode(PopLayout.SITE_BOTTOM);
                 mImgPopLayout.setSiteMode(PopLayout.SITE_BOTTOM);
                 mPopupMenuView.setSites(PopupView.SITE_BOTTOM, PopupView.SITE_LEFT, PopupView.SITE_TOP, PopupView.SITE_RIGHT);
+                mCustomMenuView.setSites(PopupView.SITE_BOTTOM, PopupView.SITE_LEFT, PopupView.SITE_TOP, PopupView.SITE_RIGHT);
                 break;
         }
     }

@@ -20,8 +20,12 @@ public class PopupMenuView extends PopupView implements OptionMenuView.OnOptionM
     private OptionMenuView.OnOptionMenuClickListener mOnOptionMenuClickListener;
 
     public PopupMenuView(Context context) {
+        this(context, 0);
+    }
+
+    public PopupMenuView(Context context, int menuRes) {
         super(context);
-        mOptionMenuView = new OptionMenuView(context);
+        mOptionMenuView = new OptionMenuView(context, menuRes);
         mOptionMenuView.setOnOptionMenuClickListener(this);
         mPopLayout = new PopLayout(context);
         mPopLayout.addView(mOptionMenuView);

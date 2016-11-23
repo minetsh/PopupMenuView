@@ -83,6 +83,12 @@ menuView.setSites(PopupView.SITE_BOTTOM, PopupView.SITE_LEFT, PopupView.SITE_TOP
 #### v1.0.3
 - 修改了module的名称，之前版本为`library`，后续版本为`popmenu`
 
+#### v1.0.4
+- 修复菜单条目变化时无法显示BUG
+
+#### v.1.0.5
+- 增加自定义样式接口
+
 # License
 ``` license
 Copyright 2016 kareluo.

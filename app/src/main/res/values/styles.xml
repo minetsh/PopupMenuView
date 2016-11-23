@@ -8,4 +8,10 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
+    <style name="CustomMenuStyle" parent="OptionMenuStyle">
+        <item name="android:padding">8dp</item>
+        <item name="android:textColor">@color/colorAccent</item>
+        <item name="android:background">@drawable/bg_custom_menu</item>
+    </style>
+
 </resources>

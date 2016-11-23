@@ -26,12 +26,19 @@ public class OptionMenuView extends LinearLayout implements PopLayout.OnBulgeCha
 
     private List<OptionMenu> mOptionMenus;
 
+    private int mItemRes = R.layout.layout_menu_item;
+
     private OnOptionMenuClickListener mMenuClickListener;
 
     private int mLeftPadding, mTopPadding, mRightPadding, mBottomPadding;
 
     public OptionMenuView(Context context) {
         this(context, null, 0);
+    }
+
+    public OptionMenuView(Context context, int itemRes) {
+        this(context);
+        if (itemRes != 0) mItemRes = itemRes;
     }
 
     public OptionMenuView(Context context, AttributeSet attrs) {
@@ -158,7 +165,7 @@ public class OptionMenuView extends LinearLayout implements PopLayout.OnBulgeCha
     }
 
     private OptionItemView newMenuItemView() {
-        OptionItemView itemView = (OptionItemView) inflate(getContext(), R.layout.layout_menu_item, null);
+        OptionItemView itemView = (OptionItemView) inflate(getContext(), mItemRes, null);
         LayoutParams params = new LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT);
         if (getOrientation() == HORIZONTAL) {
             if (getChildCount() > 0) {

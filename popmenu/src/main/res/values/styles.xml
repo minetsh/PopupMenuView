@@ -1,12 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
 
-    <style name="OptionMenuStyle" parent="android:Widget.Material.TextView">
+    <style name="OptionMenuStyle" parent="android:Widget.Material.TextView" tools:ignore="ResourceName">
         <item name="android:clickable">true</item>
         <item name="android:padding">6dp</item>
         <item name="android:textColor">#fefefe</item>
         <item name="android:textSize">12sp</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
         <item name="android:drawablePadding">2dp</item>
+        <item name="android:background">@drawable/bg_menu</item>
         <item name="android:gravity">center_vertical</item>
     </style>
 

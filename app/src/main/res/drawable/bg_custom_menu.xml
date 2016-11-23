@@ -2,10 +2,10 @@
 <selector xmlns:android="http://schemas.android.com/apk/res/android" xmlns:tools="http://schemas.android.com/tools" tools:ignore="ResourceName">
 
     <item android:state_pressed="true">
-        <color android:color="#909090" />
+        <color android:color="#2d8e44" />
     </item>
 
     <item>
-        <color android:color="#272727" />
+        <color android:color="#256132" />
     </item>
 </selector>
