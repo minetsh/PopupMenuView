@@ -78,8 +78,10 @@ public class PopLayout extends FrameLayout implements View.OnLayoutChangeListene
     private void initialize(Context context, AttributeSet attrs, int defStyleAttr) {
         TypedArray a = context.obtainStyledAttributes(attrs, R.styleable.PopLayout);
         mSiteMode = a.getInt(R.styleable.PopLayout_siteMode, SITE_BOTTOM);
-        mRadiusSize = a.getDimensionPixelSize(R.styleable.PopLayout_radiusSize, DEFAULT_RADIUS);
-        mBulgeSize = a.getDimensionPixelSize(R.styleable.PopLayout_bulgeSize, DEFAULT_BULGE_SIZE);
+        mRadiusSize = a.getDimensionPixelSize(R.styleable.PopLayout_radiusSize,
+                getResources().getDimensionPixelSize(R.dimen.pop_radius));
+        mBulgeSize = a.getDimensionPixelSize(R.styleable.PopLayout_bulgeSize,
+                getResources().getDimensionPixelSize(R.dimen.bulge_size));
         mOffset = a.getDimensionPixelSize(R.styleable.PopLayout_offsetSize, 0);
         a.recycle();
 

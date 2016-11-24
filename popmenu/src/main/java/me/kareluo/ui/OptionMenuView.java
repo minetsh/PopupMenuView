@@ -133,6 +133,7 @@ public class OptionMenuView extends LinearLayout implements PopLayout.OnBulgeCha
     }
 
     private void adjustChildCount(int targetCount) {
+        boolean needResetPadding = false;
         int count = getChildCount();
         if (count < targetCount) {
             for (int i = 0; i < targetCount; i++) {
@@ -140,9 +141,11 @@ public class OptionMenuView extends LinearLayout implements PopLayout.OnBulgeCha
                     View view = getChildAt(i);
                     if (view.getVisibility() != VISIBLE) {
                         view.setVisibility(VISIBLE);
+                        needResetPadding = true;
                     }
                 } else {
                     addView(newMenuItemView());
+                    needResetPadding = true;
                 }
             }
         } else {
@@ -151,22 +154,24 @@ public class OptionMenuView extends LinearLayout implements PopLayout.OnBulgeCha
                 if (i < targetCount) {
                     if (view.getVisibility() != VISIBLE) {
                         view.setVisibility(VISIBLE);
+                        needResetPadding = true;
                     }
                 } else {
                     if (view.getVisibility() != GONE) {
                         view.setVisibility(GONE);
+                        needResetPadding = true;
                     }
                 }
             }
         }
-        if (targetCount != count) {
+        if (needResetPadding) {
             resetPadding();
         }
     }
 
     private OptionItemView newMenuItemView() {
         OptionItemView itemView = (OptionItemView) inflate(getContext(), mItemRes, null);
-        LayoutParams params = new LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT);
+        LayoutParams params = new LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.MATCH_PARENT);
         if (getOrientation() == HORIZONTAL) {
             if (getChildCount() > 0) {
                 params.leftMargin = 1;
