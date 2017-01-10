@@ -84,11 +84,14 @@ public class OptionMenuView extends LinearLayout implements PopLayout.OnBulgeCha
             mNeedLayout = false;
             resetPadding();
             int width = LayoutParams.MATCH_PARENT;
-            int leftMargin = 0, topMargin = 1;
+            int height = LayoutParams.MATCH_PARENT;
+            int leftMargin = 0, topMargin = 0;
             if (getOrientation() == HORIZONTAL) {
                 width = LayoutParams.WRAP_CONTENT;
                 leftMargin = 1;
-                topMargin = 0;
+            } else {
+                height = LayoutParams.WRAP_CONTENT;
+                topMargin = 1;
             }
             int count = getChildCount();
             for (int i = 0; i < count; i++) {
@@ -96,6 +99,7 @@ public class OptionMenuView extends LinearLayout implements PopLayout.OnBulgeCha
                 LayoutParams params = (LayoutParams) view.getLayoutParams();
                 if (params != null) {
                     params.width = width;
+                    params.height = height;
                     params.topMargin = topMargin;
                     params.leftMargin = leftMargin;
                 }
@@ -171,7 +175,7 @@ public class OptionMenuView extends LinearLayout implements PopLayout.OnBulgeCha
 
     private OptionItemView newMenuItemView() {
         OptionItemView itemView = (OptionItemView) inflate(getContext(), mItemRes, null);
-        LayoutParams params = new LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.MATCH_PARENT);
+        LayoutParams params = new LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT);
         if (getOrientation() == HORIZONTAL) {
             if (getChildCount() > 0) {
                 params.leftMargin = 1;
@@ -181,16 +185,17 @@ public class OptionMenuView extends LinearLayout implements PopLayout.OnBulgeCha
                 mRightPadding = itemView.getPaddingRight();
                 mBottomPadding = itemView.getPaddingBottom();
             }
+            params.height = LayoutParams.MATCH_PARENT;
         } else {
             if (getChildCount() > 0) {
                 params.topMargin = 1;
-                params.width = LayoutParams.MATCH_PARENT;
             } else {
                 mLeftPadding = itemView.getPaddingLeft();
                 mTopPadding = itemView.getPaddingTop();
                 mRightPadding = itemView.getPaddingRight();
                 mBottomPadding = itemView.getPaddingBottom();
             }
+            params.width = LayoutParams.MATCH_PARENT;
         }
         itemView.setLayoutParams(params);
         itemView.setOnClickListener(this);
@@ -230,6 +235,11 @@ public class OptionMenuView extends LinearLayout implements PopLayout.OnBulgeCha
                 }
             }
         }
+    }
+
+    @Override
+    protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
+        super.onMeasure(MeasureSpec.UNSPECIFIED, MeasureSpec.UNSPECIFIED);
     }
 
     @Override

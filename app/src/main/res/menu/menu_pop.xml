@@ -9,17 +9,31 @@
 
     <item
         android:id="@+id/menu_tang"
-        android:title="烫烫烫烫烫烫" />
+        android:title="烫烫烫" />
 
     <item
         android:id="@+id/menu_location"
         android:icon="@drawable/ic_location"
         android:orderInCategory="2"
-        android:title="发送位置" />
+        android:title="发送发送" />
 
     <item
         android:id="@+id/menu_more"
         android:icon="@drawable/ic_more"
         android:orderInCategory="2"
         android:title="更多" />
+
+    <item
+        android:icon="@drawable/ic_more"
+        android:orderInCategory="2"
+        android:title="更多多" />
+
+    <item
+        android:icon="@drawable/ic_more"
+        android:orderInCategory="2"
+        android:title="更多多" />
+    <item
+        android:icon="@drawable/ic_more"
+        android:orderInCategory="2"
+        android:title="更多多" />
 </menu>

@@ -1,5 +1,7 @@
 package me.kareluo.popupmenuview;
 
+import android.graphics.Path;
+import android.graphics.RectF;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.view.menu.MenuBuilder;
@@ -115,6 +117,16 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 new OptionMenu("复制"), new OptionMenu("转发到朋友圈"),
                 new OptionMenu("收藏"), new OptionMenu("翻译"),
                 new OptionMenu("删除")));
+
+
+        Path triangle = new Path();
+        triangle.lineTo(32, 0);
+        triangle.lineTo(16, 16);
+        triangle.close();
+
+        Path path = new Path();
+        path.addRoundRect(new RectF(0, 0, 100, 32), 16, 16, Path.Direction.CW);
+        path.addPath(triangle, 16, 32);
     }
 
     @Override

@@ -18,6 +18,8 @@ public class PopupView extends PopupWindow {
 
     private int mSites = 0x9C;
 
+    private Context mViewContext;
+
     public static final int SITE_TOP = 0;
 
     public static final int SITE_LEFT = 1;
@@ -28,17 +30,12 @@ public class PopupView extends PopupWindow {
 
     public PopupView(Context context) {
         super(context);
+        mViewContext = context;
         setWidth(LayoutParams.WRAP_CONTENT);
         setHeight(LayoutParams.WRAP_CONTENT);
         setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
         setFocusable(true);
         setOutsideTouchable(true);
-    }
-
-    @Override
-    public void setContentView(View contentView) {
-        super.setContentView(contentView);
-        measureContentView();
     }
 
     public void measureContentView() {
@@ -182,5 +179,9 @@ public class PopupView extends PopupWindow {
 
     public void showAtBottom(View anchor, Point origin, int xOff, int yOff) {
         showAsDropDown(anchor, xOff, yOff);
+    }
+
+    protected Context getContext() {
+        return mViewContext;
     }
 }

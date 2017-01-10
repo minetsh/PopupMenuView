@@ -5,6 +5,11 @@ import android.graphics.Point;
 import android.graphics.Rect;
 import android.view.Menu;
 import android.view.View;
+import android.view.ViewGroup;
+import android.widget.FrameLayout;
+import android.widget.HorizontalScrollView;
+import android.widget.LinearLayout;
+import android.widget.ScrollView;
 
 import java.util.List;
 
@@ -17,6 +22,10 @@ public class PopupMenuView extends PopupView implements OptionMenuView.OnOptionM
 
     private OptionMenuView mOptionMenuView;
 
+    private PopVerticalScrollView mVerticalScrollView;
+
+    private PopHorizontalScrollView mHorizontalScrollView;
+
     private OptionMenuView.OnOptionMenuClickListener mOnOptionMenuClickListener;
 
     public PopupMenuView(Context context) {
@@ -28,7 +37,9 @@ public class PopupMenuView extends PopupView implements OptionMenuView.OnOptionM
         mOptionMenuView = new OptionMenuView(context, menuRes);
         mOptionMenuView.setOnOptionMenuClickListener(this);
         mPopLayout = new PopLayout(context);
-        mPopLayout.addView(mOptionMenuView);
+        ViewGroup scrollView = getScrollView(mOptionMenuView.getOrientation());
+        scrollView.addView(mOptionMenuView);
+        mPopLayout.addView(scrollView);
         setContentView(mPopLayout);
     }
 
@@ -119,5 +130,23 @@ public class PopupMenuView extends PopupView implements OptionMenuView.OnOptionM
             }
         }
         return false;
+    }
+
+    private ViewGroup getScrollView(int orientation) {
+        if (orientation == LinearLayout.HORIZONTAL) {
+            if (mHorizontalScrollView == null) {
+                mHorizontalScrollView = new PopHorizontalScrollView(getContext());
+                mHorizontalScrollView.setHorizontalScrollBarEnabled(false);
+                mHorizontalScrollView.setVerticalScrollBarEnabled(false);
+            }
+            return mHorizontalScrollView;
+        } else {
+            if (mVerticalScrollView == null) {
+                mVerticalScrollView = new PopVerticalScrollView(getContext());
+                mVerticalScrollView.setHorizontalScrollBarEnabled(false);
+                mVerticalScrollView.setVerticalScrollBarEnabled(false);
+            }
+            return mVerticalScrollView;
+        }
     }
 }
