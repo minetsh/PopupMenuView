@@ -18,7 +18,7 @@
 
 Use Gradle:
 ``` java
-compile 'me.kareluo.ui:popmenu:1.0.5'
+compile 'me.kareluo.ui:popmenu:1.1.0'
 ```
 
 Or Maven:
@@ -26,7 +26,7 @@ Or Maven:
 <dependency>
   <groupId>me.kareluo.ui</groupId>
   <artifactId>popmenu</artifactId>
-  <version>1.0.5</version>
+  <version>1.1.0</version>
   <type>pom</type>
 </dependency>
 ```
@@ -86,8 +86,12 @@ menuView.setSites(PopupView.SITE_BOTTOM, PopupView.SITE_LEFT, PopupView.SITE_TOP
 #### v1.0.4
 - 修复菜单条目变化时无法显示BUG
 
-#### v.1.0.5
+#### v1.0.5
 - 增加自定义样式接口
+
+#### v1.1.0
+- 默认样式微调
+- 菜单项过多时可滚动视图
 
 # License
 ``` license
