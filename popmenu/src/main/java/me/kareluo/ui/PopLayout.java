@@ -38,6 +38,8 @@ public class PopLayout extends FrameLayout implements View.OnLayoutChangeListene
 
     private Path mDestBulgePath;
 
+    private Path mPopMaskReversePath;
+
     private Matrix mCornuteMatrix;
 
     private int mSiteMode = SITE_BOTTOM;
@@ -54,7 +56,7 @@ public class PopLayout extends FrameLayout implements View.OnLayoutChangeListene
 
     private static final int DEFAULT_BULGE_SIZE = 16;
 
-    private static final Xfermode MODE = new PorterDuffXfermode(PorterDuff.Mode.DST_IN);
+    private static final Xfermode MODE = new PorterDuffXfermode(Build.VERSION.SDK_INT >= 28 ? PorterDuff.Mode.DST_OUT : PorterDuff.Mode.DST_IN);
 
     public PopLayout(Context context) {
         this(context, null, 0);
@@ -95,6 +97,7 @@ public class PopLayout extends FrameLayout implements View.OnLayoutChangeListene
 
         mBulgePath = new Path();
         mPopMaskPath = new Path();
+        mPopMaskReversePath = new Path();
         mDestBulgePath = new Path();
         mCornuteMatrix = new Matrix();
 
@@ -238,7 +241,14 @@ public class PopLayout extends FrameLayout implements View.OnLayoutChangeListene
         int layer = canvas.saveLayer(0, 0, canvas.getWidth(),
                 canvas.getHeight(), null, Canvas.ALL_SAVE_FLAG);
         super.draw(canvas);
-        canvas.drawPath(mPopMaskPath, mPaint);
+        if (Build.VERSION.SDK_INT >= 28) {
+            mPopMaskReversePath.reset();
+            mPopMaskReversePath.addRect(0, 0, getWidth(), getHeight(), Path.Direction.CW);
+            mPopMaskReversePath.op(mPopMaskPath, Path.Op.DIFFERENCE);
+            canvas.drawPath(mPopMaskReversePath, mPaint);
+        } else {
+            canvas.drawPath(mPopMaskPath, mPaint);
+        }
         canvas.restoreToCount(layer);
     }
 
